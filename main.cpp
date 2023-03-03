@@ -8,6 +8,7 @@ using namespace std;
 void flip(string& s, int end) {
     for (int i = 0; i < end / 2; i++) {
         swap(s[i], s[end - i - 1]);
+        //Intercambia el caracter en la posicion i con el penultimo
     }
 }
 
@@ -29,7 +30,9 @@ int bfs(string start, string end) {
     parent[start] = "";
     while (!q.empty()) {
         string current = q.front();
+        //cout <<current<< endl;
         q.pop();
+        cout <<current<< endl;
         if (current == end) {
             return dist[current];
         }
@@ -39,6 +42,7 @@ int bfs(string start, string end) {
                 q.push(newString);
                 dist[newString] = dist[current] + 1;
                 parent[newString] = current;
+                //cout <<newString<< endl;
             }
         }
     }
@@ -46,13 +50,13 @@ int bfs(string start, string end) {
 }
 
 int main() {
-    string start = "badc";
+    string start = "cdab";
     string end = "abcd";
     int moves = bfs(start, end);
     if (moves == -1) {
         cout << "No se encontró solución." << endl;
     } else {
-        cout << "Se necesitaron " << moves << " movimientos para ordenar los pancakes." << endl;
+        cout << "Los movimientos minimos para ordenar los pancakes fueron: " << moves << endl;
     }
     return 0;
 }
