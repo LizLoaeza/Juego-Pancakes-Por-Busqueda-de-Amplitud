@@ -1,3 +1,6 @@
+/*Juego de los pancakes resuelto con el método de búsqueda en Amplitud
+Trabajo realizado para la materia de Inteligencia Artificial*/
+
 #include <iostream>
 #include <string>
 #include <queue>
